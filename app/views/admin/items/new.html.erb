@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row my-4">
+      <h2 class="bg-light text-center">商品新規登録</h2>
+  </div>
+
+  <%= form_with model: @item, url: admin_items_path do |f| %>
+
+  <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"><%= f.label :"商品画像" %></p>
+    <p class="col-6"><%= f.file_field :image, placeholder: "ファイルを選択", accept: "image/*" %></p>
+  </div>
+
+  <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"><%= f.label :"商品名" %></p>
+    <p><%= f.text_field :name, :size => "30" %></p>
+  </div>
+
+  <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"><%= f.label :"商品説明" %></p>
+    <p class="col-6"><%= f.text_area :description, :size => "30" %></p>
+  </div>
+
+  <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"><%= f.label :"ジャンル" %></p>
+    <p class="col-6"><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %></p>
+  </div>
+
+  <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"><%= f.label *"販売価格" %></p>
+    <p class="col-6"><%= f.text_field :price, :size => "30" %>円</p>
+  </div>
+
+   <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"><%= f.label *"販売ステータス" %></p>
+    <p class="col-6">
+      <%= f.radio_button :is_sales_status, true %>
+      <%= f.label :is_sales_status, '販売中', value: true %>
+      <%= f.radio_button :is_sales_status, false %>
+      <%= f.label :is_sales_status, '販売停止中', value: false %>
+    </p>
+  </div>
+
+   <div class="d-flex justify-content-start col-8 mx-auto">
+    <p class="col-3"></p>
+    <p class="col-3 ml-3"><%= f.submit '新規登録', class: "btn btn-success btn-block" %></p>
+  </div>
+  <% end %>
+</div>

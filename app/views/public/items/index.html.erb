@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <div></div>
+
+    <div>
+      <div>
+        <h2></h2><strong>>商品一覧</strong><small>(全<%= @item.count %>件)</small></h2>
+      </div>
+
+      <div>
+        <% @items.each do |item| %>
+
+        <div>
+          <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_image(200,100) %>
+
+          <div>
+            <h4>
+              <%= item.name %>
+              <% if !item.is_sales_status %>
+              販売停止中
+              <% end %>
+            </h4>
+            <p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
+          </div>
+          <% end %>
+        </div>
+         <% end %>
+      </div>
+                                 <div>
+                                   <%= paginate @items %>l
+                                 </div>
+    </div>
+  </div>
+</div>
