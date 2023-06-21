@@ -1,20 +1,20 @@
-<div>
-  <div>
-    <div></div>
+<div class="container-fluid">
+  <div class="row my-5 mx-auto px-5">
+    <div class="col-2 border border-secondary"></div>
 
-    <div>
-      <%= image_tag item.get_image(200,100) %>
+    <div class="col-3 offset-1">
+      <%= image_tag item.get_image(300,250) %>
     </div>
 
-    <div>
-      <h4> <%= item.name %></h4>
+    <div class="col-6 pr-5">
+      <h4 class="font-weight-bold"> <%= item.name %></h4>
       <p><%= @item.description %></p>
       <h5>¥<%= item.with_tax_price.to_s(:delimited) %><small>(税込)</small></h5>
 
       <%= form_with model: @cart_item, url cart_items_path do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
       <%= select :amount, *[1..10] %>
-      <%= f.submit "カートに入れる" %>
+      <%= f.submit "カートに入れる", class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
