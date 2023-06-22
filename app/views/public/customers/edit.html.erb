@@ -1,42 +1,56 @@
-<h1><strong>会員情報編集</strong></h1>
+<div class="container">
+  <div class="row my-4 ml-5">
+    <h2><strong>会員情報編集</strong></h2>
+  </div>
 
+  <%= form_with model:@customer, url: customers_information_path do |f| %>
 
-<% form_with model :@costomer, url: customers_information_path do |f| %>
+  <div class="d-flex justify-content-around align-items-center  col-8">
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th>氏名</th>
+          <td><%= f.text_field :last_name %> </td>
+          <td><%= f.text_field :first_name %> </td>
+        </tr>
 
-<tr>
-  <th>氏名</th>
-  <td><%= f.text_field :last_name %> </td>
-  <td><%= f.text_field :first_name %> </td>
-</tr>
+        <tr>
+          <th>フリガナ</th>
+          <td><%= f.text_field :last_name_kana %> </td>
+          <td><%= f.text_field :first_name_kana %> </td>
+        </tr>
 
-<tr>
-  <th>フリガナ</th>
-  <td><%= f.text_field :last_name_kana %> </td>
-  <td><%= f.text_field :first_name_kana %> </td>
-</tr>
+        <tr>
+          <th>郵便番号</th>
+          <td> <%= f.text_field :postcode %> </td>
+        </tr>
 
-<tr>
-  <th>郵便番号</th>
-  <td> <%= f.text_field :postcode %> </td>
-</tr>
+        <tr>
+          <th>住所</th>
+          <td> <%= f.text_field :address %> </td>
+        </tr>
 
-<tr>
-  <th>住所</th>
-  <td> <%= f.text_field :address %> </td>
-</tr>
+        <tr>
+          <th>電話番号</th>
+          <td> <%= f.text_field :phone_number %> </td>
+        </tr>
 
-<tr>
-  <th>電話番号</th>
-  <td> <%= f.text_field :phone_number %> </td>
-</tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td> <%= f.email_field :email %> </td>
+        </tr>
 
-<tr>
-  <th>メールアドレス</th>
-  <td> <%= f.email_field :email %> </td>
-</tr>
+        <tr>
+          <th colspan="1"></th>
+          <td><%= f.submit "編集内容を保存", class: "btn btn-success" %></td>
+          <td><%= link_to "退会する", customers_quit_path, class: "btn btn-danger" %></td>
+        </tr>
 
+      </tbody>
+    </table>
+  </div>
 
-<tr>
-  <td><%= f.submit "編集内容を保存" %></td>
-  <td><%= link_to "退会する", cutomers_quit_path %></td>
-</tr>
+  <% end %>
+
+</div>
+
