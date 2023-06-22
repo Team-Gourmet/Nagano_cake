@@ -1,2 +1,43 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div>
+  <div>
+    <div></div>
+
+    <div>
+      <div>
+        <p>
+          ようこそ、ながのCAKEへ！</br>
+          このサイトは、ケーキ販売のECサイトになります。</br>
+          会員でない方も商品の閲覧はできますが、</br>
+          購入には会員登録が必要になります。</br>
+        </p>
+      </div>
+
+      <div>
+        <h2><strong>新着商品</strong></h2>
+      </div>
+
+      <div>
+        <% @items.each do |item| %>
+
+        <div>
+          <div>
+            <%= link_to item_path(item.id) do %>
+            <% image_tag item.get_image(200, 150) %>
+            <div>
+              <h4><%= item.name %></h4>
+              <% end %>
+              <p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to "全ての商品を見る ＞", items_path %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
