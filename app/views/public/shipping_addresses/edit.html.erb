@@ -1,2 +1,26 @@
-<h1>Public::ShippingAddresses#edit</h1>
-<p>Find me in app/views/public/shipping_addresses/edit.html.erb</p>
+<div>
+  <div>
+    <h2>配送先編集</h2>
+  </div>
+
+  <div>
+    <%= form_with model: @address do |f| %>
+
+    <div>
+      <p>郵便番号（ハイフンなし）</p>
+      <p><%= f.text_field :postcode %></p>
+    </div>
+
+    <div>
+      <p>住所</p>
+      <p><%= f.text_field :address %></p>
+    </div>
+
+    <div>
+      <p>宛名</p>
+      <p><%= f.text_field :name %></p>
+      <p><%= f.submit "変更内容を保存" %></p>
+    </div>
+    <% end %>
+  </div>
+</div
