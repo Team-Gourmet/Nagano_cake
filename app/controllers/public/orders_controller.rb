@@ -8,20 +8,20 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @total = 0
     if params[:order][:select_address] == "0" #ご自身の住所
-      @order = Order.new(params)
+      @order = Order.new(order_params)
       @order.shipping_fee = 800
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:select_address] == "1" #登録先住所から選択
-      @order = Order.new(params)
+      @order = Order.new(order_params)
       @order.shipping_fee = 800
       @address = Address.find_by(params[:order][:address_id])
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.name = @address.name
     elsif params[:order][:select_address] == "2" #新しいお届け先
-      @order = Order.new(params)
+      @order = Order.new(order_params)
       @order.shipping_fee = 800
     end
 
