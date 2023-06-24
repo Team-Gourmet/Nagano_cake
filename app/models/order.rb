@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :costomer
   has_many :order_details, dependent: :destroy
+  
+  enum payment_method: { credit_card: 0, transfer: 1 }
+  enum order_status: { waiting: 0, confirmed: 1, making: 2, shipping_preparation: 3, shipped: 4 }
 end
