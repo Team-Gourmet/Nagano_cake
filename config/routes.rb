@@ -25,13 +25,13 @@ Rails.application.routes.draw do
         patch 'customers/information' => 'customers#update'                  #顧客の登録情報更新.
         get 'customers/quit' => 'customers#quit'                             #顧客の退会確認画面.
         patch 'customers/withdraw' => 'customers#withdraw'                   #顧客の退会処理(ステータスの更新).
-
+        
+      delete 'cart_items/destroy_all' => 'cart_items#destroy_all'          #カート内商品データ削除(全て).
       resources :cart_items, only: [:index,:create, :update, :destroy]
-        delete 'cart_items/destroy_all' => 'cart_items#destroy_all'          #カート内商品データ削除(全て).
-
+      
+      post 'orders/check' => 'orders#check'                                #注文情報確認画面.
+      get 'orders/completed' => 'orders#completed'                         #注文完了画面.
       resources :orders, only: [:new, :create, :index, :show]
-        post 'orders/check' => 'orders#check'                                #注文情報確認画面.
-        get 'orders/completed' => 'orders#completed'                         #注文完了画面.
 
       resources :shipping_addresses, only: [:index, :edit, :create, :update, :destroy]
     end
