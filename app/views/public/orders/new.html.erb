@@ -1,15 +1,15 @@
-<div>
-  <div>
+<div class="container">
+  <div class="row my-4 ml-5">
     <h2>注文情報入力</h2>
   </div>
 </div>
 
-<div>
+<div class="d-flex justify-content-around align-items-center col-8">
   <%= form_with model: @order, url: orders_check_path, method: :post do |f|  %>
-  <h2><storng>支払方法</storng></h2>
+  <h2><strong>支払方法</strong></h2>
   
   <div>
-    <ul>
+    <ul class="list-unstyled">
       <li>
         <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
         <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
@@ -21,14 +21,15 @@
     </ul>
   </div>
   
-  <h2><strong>お届け先</strong></h2>
-  <div>
-    <ul>
+  <div　class="d-flex justify-content-around align-items-center col-8">
+    <h2><strong>お届け先</strong></h2>
+    
+    <ul class="list-unstyled">
       <li>
         <%= f.radio_button :select_address, "0" %>
-        <%= f.label :select_address_0, "ご自身の住所" %>
-        <p>〒<%= @customer.postcode %><%= @customer.address %></p>
-        <p><%= @customer.last_name + @customer.first_name %></p>
+        <%= f.label :select_address_0, "ご自身の住所" %><br>
+        〒<%= @customer.postcode %><%= @customer.address %><br>
+        <%= @customer.last_name + @customer.first_name %>
       </li>
       
       <li>
@@ -40,23 +41,30 @@
       <li>
         <%= f.radio_button :select_address, "2" %>
         <%= f.label :select_address_2, "新しいお届け先" %>
-        <div>
-          <p>郵便番号（ハイフンなし）</p>
-          <p><%= f.text_field :postcode %></p>
-        </div>
-        <div>
-          <p>住所</p>
-          <p><%= f.text_field :address %></p>
-        </div>
-        <div>
-          <p>宛名</p>
-          <p><%= f.text_field :name %></p>
-        </div>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th>郵便番号（ハイフンなし）</th>
+              <td><%= f.text_field :postcode %> </td>
+            </tr>
+
+            <tr>
+              <th>住所</th>
+              <td><%= f.text_field :address %></td>
+            </tr>
+
+            <tr>
+              <th>宛名</th>
+              <td> <%= f.text_field :name %></td>
+            </tr>
+          </tbody>
+        </table>
       </li>
     </ul>
   </div>
-  <div>
-    <%= f.submit "確認画面へ進む" %>
+  
+  <div class="d-flex justify-content-around align-items-center col-auto">
+    <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
   </div>
   <% end %>
 </div>
