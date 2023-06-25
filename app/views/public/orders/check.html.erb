@@ -2,7 +2,7 @@
   <div>
     <h3>注文情報確認</h3>
   </div>
-</div>
+
  
   <div>
     <div>
@@ -24,7 +24,10 @@
             </td>
             <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
             <td><%= cart_item.quantity %></td>
-            <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+            <td>
+              <%= cart_item.subtotal.to_s(:delimited) %>
+            </td>
+            <% @total += cart_item.subtotal %>
           </tr>
           <% end %>
         </tbody>
@@ -69,7 +72,7 @@
   </div>
 
   <div>
-    <%= form_with model: @order, url: orders_completed_path, method: :post do |f| %>
+    <%= form_with model: @order, url: orders_path do |f| %>
       <%= f.hidden_field :postcode, :value => @order.postcode %>
       <%= f.hidden_field :address, :value => @order.address %>
       <%= f.hidden_field :name, :value => @order.name %>
@@ -79,3 +82,4 @@
       <%= f.submit "注文を確定する" %>
     <% end %>
   </div>
+</div>
