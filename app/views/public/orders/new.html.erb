@@ -7,7 +7,7 @@
 <div class="d-flex justify-content-around align-items-center col-8">
   <%= form_with model: @order, url: orders_check_path, method: :post do |f|  %>
   <h2><strong>支払方法</strong></h2>
-  
+
   <div>
     <ul class="list-unstyled">
       <li>
@@ -20,10 +20,10 @@
       </li>
     </ul>
   </div>
-  
+
   <div class="d-flex justify-content-around align-items-center col-8">
     <h2><strong>お届け先</strong></h2>
-    
+
     <ul class="list-unstyled">
       <li>
         <%= f.radio_button :select_address, "0" %>
@@ -31,13 +31,13 @@
         〒<%= @customer.postcode %><%= @customer.address %><br>
         <%= @customer.last_name + @customer.first_name %>
       </li>
-      
+
       <li>
         <%= f.radio_button :select_address, "1" %>
         <%= f.label :select_address_1, "登録先住所から選択" %>
         <p><%= f.select :address_id, options_from_collection_for_select(current_customer.shipping_addresses, :id, :address_display) %></p>
       </li>
-      
+
       <li>
         <%= f.radio_button :select_address, "2" %>
         <%= f.label :select_address_2, "新しいお届け先" %>
@@ -62,7 +62,7 @@
       </li>
     </ul>
   </div>
-  
+
   <div class="d-flex justify-content-around align-items-center col-auto">
     <%= f.submit "確認画面へ進む", class:"btn btn-primary" %>
   </div>
