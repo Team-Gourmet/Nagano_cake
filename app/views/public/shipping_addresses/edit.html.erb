@@ -6,23 +6,23 @@
 
     <%= form_with model: @address do |f| %>
 
-      <div class="d-flex justify-content-around align-items-center  col-8">
+      <div class="d-flex justify-content-around align-items-center  col-10">
 
         <table class="table table-borderless">
           <tbody>
             <tr>
               <th>郵便番号（ハイフンなし）</th>
-              <td><%= f.text_field :postcode %> </td>
+              <td><%= f.text_field :postcode, :size => "30" %> </td>
             </tr>
 
             <tr>
               <th>住所</th>
-              <td><%= f.text_field :address %></td>
+              <td><%= f.text_field :address, :size => "50" %></td>
             </tr>
 
             <tr>
               <th>宛名</th>
-              <td> <%= f.text_field :name %></td>
+              <td> <%= f.text_field :name, :size => "30" %></td>
               <td><%= f.submit "変更内容を保存", class:"btn btn-success" %></td>
             </tr>
           </tbody>
