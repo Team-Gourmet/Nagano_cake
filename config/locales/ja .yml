@@ -5,7 +5,7 @@ ja:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
          
-        order_status:
+        status:
           waiting: '入金待ち'
           confirmed: '入金確認'
           making: '製作中'
