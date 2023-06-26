@@ -2,7 +2,7 @@
   <div>
     <h2>注文履歴詳細</h2>
   </div>
-  
+
   <div>
     <p>購入者</p>
     <p><%= @order.customer.last_name + @order.customer.first_name %></p>
@@ -33,7 +33,7 @@
     </div>
     <% end %>
   </div>
-  
+
   <div>
     <div>
       <table>
@@ -44,7 +44,7 @@
           <th>小計</th>
           <th>製作ステータス</th>
         </thead>
-        
+
         <tbody>
           <% @order.order_details.each do |order_detail| %>
           <tr>
@@ -64,7 +64,7 @@
         </tbody>
       </table>
     </div>
-    
+
     <div>
       <div>
         <p>商品合計</p>
@@ -78,9 +78,9 @@
         <p>請求金額合計</p>
         <p><%= @order.total_amount.to_s(:delimited) %>円</p>
       </div>
-      
+
     </div>
-    
+
   </div>
-  
+
 </div>
