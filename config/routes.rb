@@ -25,7 +25,7 @@ Rails.application.routes.draw do
         get 'customers/information/edit' => 'customers#edit'                 #顧客の登録情報編集画面.
         patch 'customers/information' => 'customers#update'                  #顧客の登録情報更新.
         get 'customers/quit' => 'customers#quit'                             #顧客の退会確認画面.
-        patch 'customers/withdraw' => 'customers#withdraw'                   #顧客の退会処理(ステータスの更新).
+        patch 'customers/withdraw' => 'customers#withdraw'        #顧客の退会処理(ステータスの更新).
         
       delete 'cart_items/destroy_all' => 'cart_items#destroy_all'          #カート内商品データ削除(全て).
       resources :cart_items, only: [:index,:create, :update, :destroy]

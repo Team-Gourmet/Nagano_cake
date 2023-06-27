@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Admin::SessionsController < Devise::SessionsController
  
   # 新規登録後のリダイレクト先をマイページへ
