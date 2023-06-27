@@ -15,6 +15,19 @@ class Item < ApplicationRecord
   def with_tax_price
    (price * 1.1).floor
   end
+  
+  def self.looks(search, word)
 
+    if search == "partial_match"
+  
+     @item = Item.where("name LIKE?","%#{word}%")
+  
+    else
+  
+     @item = Item.all
+  
+    end
+
+  end
 
 end
