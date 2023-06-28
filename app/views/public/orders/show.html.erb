@@ -41,16 +41,16 @@
       <div>
         <table class="table table-bordered">
           <tr>
-            <th style="width: 30%">商品合計</th>
-            <td style="width: 70%"><%= ( @order.total_amount - @order.shipping_fee).to_s(:delimited) %></td>
+            <th style="width: 35%">商品合計</th>
+            <td style="width: 65%"><%= ( @order.total_amount - @order.shipping_fee).to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th style="width: 30%">配送料</th>
-            <td style="width: 70%"><%= @order.shipping_fee %></td>
+            <th style="width: 35%">配送料</th>
+            <td style="width: 65%"><%= @order.shipping_fee %></td>
           </tr>
           <tr>
-            <th style="width: 30%">ご請求額</th>
-            <td style="width: 70%"><%= @order.total_amount.to_s(:delimited) %></td>
+            <th style="width: 35%">ご請求額</th>
+            <td style="width: 65%"><%= @order.total_amount.to_s(:delimited) %></td>
           </tr>
         </table>
       </div>

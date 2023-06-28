@@ -25,8 +25,8 @@ class Public::CartItemsController < ApplicationController
   def create
 
     @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])   #カート内に入っている商品ＩＤと同じＩＤを商品一覧から探す
-    if @cart_item.present?
-       @cart_item.quantity = @cart_item.quantity + params[:cart_item][:quantuty].to_i  #元々入っている個数＋商品から追加された個数
+    if  @cart_item.present?
+        @cart_item.quantity = @cart_item.quantity + params[:cart_item][:quantity].to_i#元々入っている個数＋商品から追加された個数
     else
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
