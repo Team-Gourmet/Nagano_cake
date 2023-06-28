@@ -1,39 +1,42 @@
-<div>
-  <div>
-    <div></div>
-
-    <div>
-      <div>
-        <p>
-          ようこそ、ながのCAKEへ！</br>
-          このサイトは、ケーキ販売のECサイトになります。</br>
-          会員でない方も商品の閲覧はできますが、</br>
-          購入には会員登録が必要になります。</br>
-        </p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-9 offset-1">
+    <div class="container-fluid">
+      <div class="row">
+         <div class="col-xs-12 cover-img" style="background-size: cover; width: 600px; height: 400px; background-image: url('<%= asset_path("top.jpg") %>');">
+           <div class="cover-text text-center">
+            <p style="color: #0000ff; padding-right: 200px; padding-left: 0; padding-top: 150px;">
+              ようこそ、ながのCAKEへ！</br>
+              このサイトは、ケーキ販売のECサイトになります。</br>
+              会員でない方も商品の閲覧はできますが、</br>
+              購入には会員登録が必要になります。</br>
+            </p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div>
+      <div class="row">
         <h2><strong>新着商品</strong></h2>
       </div>
 
-      <div>
+      <div class="row">
         <% @items.each do |item| %>
 
-        <div>
-          <div>
+        <div class="d-flex">
+          <div class="card mr-3", style="width: 12rem;">
             <%= link_to item_path(item.id) do %>
-            <% image_tag item.get_image(200, 150) %>
-            <div>
-              <h4><%= item.name %></h4>
+            <%= image_tag item.get_image(191, 150) %>
+            <div class="card-body">
+              <h4 class="card-title"><%= item.name %></h4>
               <% end %>
-              <p>¥<%= item.with_tax_price.to_s(:delimited) %></p>
+              <p class="card-text">¥<%= item.with_tax_price.to_s(:delimited) %></p>
             </div>
           </div>
         </div>
         <% end %>
       </div>
 
-      <div>
+      <div class="d-flex justify-content-end mt-4">
         <%= link_to "全ての商品を見る ＞", items_path %>
       </div>
 

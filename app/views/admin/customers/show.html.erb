@@ -1,45 +1,47 @@
-<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
-
-<div>
-  <p>会員ID</p>
-  <p><%= @customer.id %></p>
+<div class="contener">
+  <div class="row my-4">
+   <h1 class="bg-light text-center col-4"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h1>
+  </div> 
+<div class="d-flex justify-content-start">
+  <p class="col-2">会員ID</p>
+  <p class="col"><%= @customer.id %></p>
 </div>
 
-<div>
-  <p>氏名</p>
-  <p><%= @customer.last_name %><%= @customer.first_name %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">氏名</p>
+  <p class="col"><%= @customer.last_name %><%= @customer.first_name %></p>
 </div>
 
-<div>
-  <p>フリガナ</p>
-  <p><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">フリガナ</p>
+  <p class="col"><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
 </div>
 
-<div>
-  <p>郵便番号</p>
-  <p><%= @customer.postcode %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">郵便番号</p>
+  <p class="col"><%= @customer.postcode %></p>
 </div>
 
-<div>
-  <p>住所</p>
-  <p><%= @customer.address %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">住所</p>
+  <p class="col"><%= @customer.address %></p>
 </div>
 
-<div>
-  <p>電話番号</p>
-  <p><%= @customer.phone_number %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">電話番号</p>
+  <p class="col"><%= @customer.phone_number %></p>
 </div>
 
-<div>
-  <p>メールアドレス</p>
-  <p><%= @customer.email %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">メールアドレス</p>
+  <p class="col"><%= @customer.email %></p>
 </div>
 
-<div>
-  <p>会員ステータス</p>
-  <p><%= @customer.is_withdrawal ? '退会' : '有効' %></p>
+<div class="d-flex justify-content-start">
+  <p class="col-2">会員ステータス</p>
+  <p class="col"><%= @customer.is_withdrawal ? '退会' : '有効' %></p>
 </div>
-<div>
-  <td><%= link_to "編集する", edit_admin_customer_path(@customer) %></td>
-  <td><%= link_to "注文一覧を見る", admin_path %></td>
+<div class="d-flex justify-content-start">
+  <p class="col-2"><%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success"  %></p>
+  <p class="col-2"><%= link_to "注文一覧を見る", admin_path, class: "btn btn-primary" %></p>
 </div>

@@ -1,46 +1,48 @@
-<div>
-<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
+<div class="contener">
+  <div class="row my-4">
+   <h2 class="bg-light text-center col-4"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+  </div>
  <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
-<div>
-  <p>会員ID</p>
-  <p><%= @customer.id %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">会員ID</p>
+  <p class="col"><%= @customer.id %></p>
 </div>
 
-<div>
-  <p>氏名</p>
-  <p><%= f.text_field :last_name %></p>
-  <p><%= f.text_field :first_name %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">氏名</p>
+  <p class="col-2"><%= f.text_field :last_name, class: "form-control input-md"  %></p>
+  <p class="col-2"><%= f.text_field :first_name, class: "form-control input-md"  %></p>
 </div>
 
-<div>
-  <p>フリガナ</p>
-  <p><%= f.text_field :last_name_kana %></p>
-  <p><%= f.text_field :first_name_kana %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">フリガナ</p>
+  <p class="col-2"><%= f.text_field :last_name_kana, class: "form-control input-md"  %></p>
+  <p class="col-2"><%= f.text_field :first_name_kana, class: "form-control input-md"  %></p>
 </div>
 
-<div>
-  <p>郵便番号</p>
-  <p><%= f.text_field :postcode %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">郵便番号</p>
+  <p class="col-2"><%= f.text_field :postcode, class: "form-control input-md"  %></p>
 </div>
 
-<div>
-  <p>住所</p>
-  <p><%= f.text_field :address %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">住所</p>
+  <p class="col-4"><%= f.text_field :address, :size => "50", class: "form-control input-md"  %></p>
 </div>
 
-<div>
-  <p>電話番号</p>
-  <p><%= f.text_field :phone_number %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">電話番号</p>
+  <p class="col-2"><%= f.text_field :phone_number, class: "form-control input-md"  %></p>
 </div>
 
-<div>
-  <p>メールアドレス</p>
-  <p><%= f.email_field :email %></p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">メールアドレス</p>
+  <p class="col-2"><%= f.email_field :email, class: "form-control input-md"  %></p>
 </div>
 
-<div>
-  <p>会員ステータス</p>
-  <p>
+<div class="d-flex justify-content-start col-10">
+  <p class="col-2">会員ステータス</p>
+  <p class="col-2">
     <%= f.radio_button :is_withdrawal, false %>
     <%= f.label :is_withdrawal, '有効', value: false %>
     <%= f.radio_button :is_withdrawal, true %>
@@ -48,8 +50,9 @@
   </p>
   
 </div>
-<div>
-  <td><%= f.submit "編集を保存" %></td>
+<div class="d-flex justify-content-start col-10 my-4">
+  <p class="col-2"></p>
+  <p class="col-2"><%= f.submit "編集を保存", class: "btn btn-success" %></p>
 </div>
 <% end %>
 </div>
