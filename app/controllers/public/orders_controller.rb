@@ -16,7 +16,7 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == "1" #登録先住所から選択
       @order = Order.new(order_params)
       @order.shipping_fee = 800
-      @address = ShippingAddress.find_by(params[:order][:address_id])
+      @address = ShippingAddress.find(params[:order][:address_id])
       @order.postcode = @address.postcode
       @order.address = @address.address
       @order.name = @address.name
